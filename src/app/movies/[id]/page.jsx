@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
 async function getMovie(id) {
 	const response = await fetch(
@@ -6,7 +7,7 @@ async function getMovie(id) {
 	)
 
 	if (!response.ok) {
-		throw new Error('Something went wrong!')
+		return undefined
 	}
 
 	return response.json()
@@ -15,13 +16,17 @@ async function getMovie(id) {
 export default async function Page({ params }) {
 	const movie = await getMovie(params.id)
 
+	if (!movie) {
+		notFound()
+	}
+
 	return (
 		<div className='py-10 space-y-5'>
 			<h1 className='text-lg font-bold text-center'>{movie.name}</h1>
 
 			<div className='flex gap-5'>
 				<div className='basis-1/5'>
-					<div className='relative aspect-square'>
+					<div className='relative aspect-[4/6]'>
 						<Image
 							src={movie.vertical_poster.thumbnails.normal.src}
 							fill
