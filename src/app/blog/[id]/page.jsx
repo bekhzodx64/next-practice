@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation'
 
+import GoBackButton from './components/go-back-button'
+
 export async function generateMetadata({ params }) {
 	const post = await getData(params.id)
 
@@ -7,14 +9,11 @@ export async function generateMetadata({ params }) {
 }
 
 async function getData(id) {
-	const response = await fetch(
-		`https://jsonplaceholder.typicode.com/posts/${id}`
-	)
+	const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
 
-	if (!response.ok) {
-	}
+	if (!res.ok) return undefined
 
-	return response.json()
+	return res.json()
 }
 
 export default async function Post({ params }) {
@@ -28,6 +27,8 @@ export default async function Post({ params }) {
 		<div className='py-10 space-y-5 text-center'>
 			<h1 className='text-lg font-bold'>{`${post.id}. ${post.title}`}</h1>
 			<p className='max-w-md mx-auto'>{post.body}</p>
+
+			<GoBackButton />
 		</div>
 	)
 }
