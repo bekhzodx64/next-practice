@@ -5,6 +5,10 @@ import GoBackButton from './components/go-back-button'
 export async function generateMetadata({ params }) {
 	const post = await getData(params.id)
 
+	if (!post) {
+		return
+	}
+
 	return { title: `Blog page - ${post.title}` }
 }
 
@@ -18,6 +22,7 @@ async function getData(id) {
 
 export default async function Post({ params }) {
 	const post = await getData(params.id)
+	console.log('🪲 ~ file: page.jsx:20 ~ Post ~ post:', post)
 
 	if (!post) {
 		notFound()
