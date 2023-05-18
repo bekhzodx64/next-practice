@@ -5,7 +5,6 @@ const nextConfig = {
 			{
 				protocol: 'https',
 				hostname: 'cdn.biztv.media',
-				pathanme: 'static/media',
 			},
 		],
 	},
