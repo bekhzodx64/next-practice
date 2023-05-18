@@ -1,5 +1,9 @@
 import Link from 'next/link'
 
+export const metadata = {
+	title: 'Blog page',
+}
+
 async function getData() {
 	const response = await fetch('https://jsonplaceholder.typicode.com/posts')
 
@@ -8,10 +12,6 @@ async function getData() {
 	}
 
 	return response.json()
-}
-
-export const metadata = {
-	title: 'Blog page',
 }
 
 export default async function Blog() {

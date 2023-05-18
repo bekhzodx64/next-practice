@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation'
+
 export async function generateMetadata({ params }) {
 	const post = await getData(params.id)
 
@@ -9,11 +11,18 @@ async function getData(id) {
 		`https://jsonplaceholder.typicode.com/posts/${id}`
 	)
 
+	if (!response.ok) {
+	}
+
 	return response.json()
 }
 
 export default async function Post({ params }) {
 	const post = await getData(params.id)
+
+	if (!post) {
+		notFound()
+	}
 
 	return (
 		<div className='py-10 space-y-5 text-center'>
