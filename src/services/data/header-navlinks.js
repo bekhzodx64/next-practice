@@ -14,4 +14,9 @@ export const navlinks = [
 		url: '/about',
 		text: 'about',
 	},
+	{
+		id: 4,
+		url: '/movies',
+		text: 'movies',
+	},
 ]
