@@ -22,7 +22,6 @@ async function getData(id) {
 
 export default async function Post({ params }) {
 	const post = await getData(params.id)
-	console.log('🪲 ~ file: page.jsx:20 ~ Post ~ post:', post)
 
 	if (!post) {
 		notFound()
