@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -25,8 +23,7 @@ export default async function Movies() {
 						src={movie.vertical_poster.thumbnails.normal.src}
 						height={728}
 						width={1024}
-						className='transition-opacity duration-500 opacity-0 select-none'
-						onLoadingComplete={(image) => image.classList.remove('opacity-0')}
+						className='select-none'
 						alt={movie.name}
 					/>
 					<p className='text-center'>{movie.name}</p>
