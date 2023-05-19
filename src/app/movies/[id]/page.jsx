@@ -17,6 +17,7 @@ async function getMovie(id) {
 
 export default async function Page({ params }) {
 	const movie = await getMovie(params.id)
+	console.log('🪲 ~ file: page.jsx:20 ~ Page ~ movie:', movie)
 
 	if (!movie) {
 		notFound()
@@ -33,15 +34,29 @@ export default async function Page({ params }) {
 				<div className='basis-1/5'>
 					<div className='relative aspect-[4/6]'>
 						<Image
+							draggable={false}
 							src={movie.vertical_poster.thumbnails.normal.src}
 							fill
 							className='object-cover w-auto h-auto select-none'
-							alt={movie.title}
+							alt={movie.name}
 						/>
 					</div>
 				</div>
 
-				<div>movie descriptions will be here</div>
+				<div className='basis-4/5'>
+					<div className='max-w-md'>
+						<div className='flex items-baseline gap-3'>
+							<div>Name:</div>
+							<div className='border-b border-black border-dotted grow'></div>
+							<div>{movie.name}</div>
+						</div>
+						<div className='flex items-baseline gap-3'>
+							<div>Year:</div>
+							<div className='border-b border-black border-dotted grow'></div>
+							<div>{movie.year}</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			{movie.galleries && (
@@ -51,7 +66,7 @@ export default async function Page({ params }) {
 					<ul className='grid grid-cols-4 gap-5'>
 						{movie.galleries.slice(0, 4).map((gallery) => {
 							return (
-								<li>
+								<li key={gallery.id}>
 									<Image
 										src={gallery.thumbnails.normal.src}
 										draggable={false}
