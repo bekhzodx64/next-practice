@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 async function getMovies() {
 	const response = await fetch(
-		'https://api.biztv.media/api/v1/films?filter[type]=1&per_page=15&sort=-id&_f=json&_l=uz'
+		'https://api.biztv.media/api/v1/films?filter[type]=1&per_page=15&_f=json&_l=uz'
 	)
 
 	return response.json()

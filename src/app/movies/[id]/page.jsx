@@ -36,29 +36,31 @@ export default async function Page({ params }) {
 					</div>
 				</div>
 
-				<div>fdsfd</div>
+				<div>movie descriptions will be here</div>
 			</div>
 
-			<div className='space-y-2'>
-				<h3 className='text-lg font-semibold'>Kadrlar</h3>
+			{movie.galleries && (
+				<div className='space-y-2'>
+					<h3 className='text-lg font-semibold'>Kadrlar</h3>
 
-				<ul className='grid grid-cols-4 gap-5'>
-					{movie.galleries.slice(0, 4).map((gallery) => {
-						return (
-							<li>
-								<Image
-									src={gallery.thumbnails.normal.src}
-									draggable={false}
-									width={1024}
-									height={728}
-									alt={gallery.title}
-									className='select-none'
-								/>
-							</li>
-						)
-					})}
-				</ul>
-			</div>
+					<ul className='grid grid-cols-4 gap-5'>
+						{movie.galleries.slice(0, 4).map((gallery) => {
+							return (
+								<li>
+									<Image
+										src={gallery.thumbnails.normal.src}
+										draggable={false}
+										width={1024}
+										height={728}
+										alt={gallery.title}
+										className='select-none'
+									/>
+								</li>
+							)
+						})}
+					</ul>
+				</div>
+			)}
 		</div>
 	)
 }
