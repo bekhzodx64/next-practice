@@ -1,6 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const metadata = {
+	title: 'Movies',
+}
+
 async function getMovies() {
 	const response = await fetch(
 		'https://api.biztv.media/api/v1/films?filter[type]=1&per_page=15&_f=json&_l=uz'

@@ -7,7 +7,7 @@ import Header from '@/components/shared/header'
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
-	title: 'Home page',
+	title: 'Home',
 }
 
 export default function RootLayout({ children }) {

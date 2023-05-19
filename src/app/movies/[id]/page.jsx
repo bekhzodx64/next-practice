@@ -3,6 +3,16 @@ import { notFound } from 'next/navigation'
 
 import GoBack from './components/go-back'
 
+export async function generateMetadata({ params }) {
+	const movie = await getMovie(params.id)
+
+	if (!movie) {
+		return
+	}
+
+	return { title: `Movies - ${movie.name}` }
+}
+
 async function getMovie(id) {
 	const response = await fetch(
 		`https://api.biztv.media/api/v1/films/${id}?append=galleries,isBookmarked,isNotified,seasons&include=country,thriller,genres,actors.photo,comments,series.film,language,formats&_f=json&_l=uz`
@@ -17,7 +27,6 @@ async function getMovie(id) {
 
 export default async function Page({ params }) {
 	const movie = await getMovie(params.id)
-	console.log('🪲 ~ file: page.jsx:20 ~ Page ~ movie:', movie)
 
 	if (!movie) {
 		notFound()

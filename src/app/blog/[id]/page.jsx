@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
 		return
 	}
 
-	return { title: `Blog page - ${post.title}` }
+	return { title: `Blog - ${post.title}` }
 }
 
 async function getData(id) {

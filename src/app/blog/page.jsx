@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-	title: 'Blog page',
+	title: 'Blog',
 }
 
 async function getData() {
