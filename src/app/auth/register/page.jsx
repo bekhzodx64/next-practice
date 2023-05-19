@@ -4,7 +4,7 @@ export default function Register() {
 	return (
 		<div className='flex flex-col items-center py-10'>
 			register page
-			<div>
+			<div className='py-10'>
 				<p>
 					Already have an account?{' '}
 					<Link

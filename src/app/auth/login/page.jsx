@@ -4,7 +4,7 @@ export default function Login() {
 	return (
 		<div className='flex flex-col items-center py-10'>
 			login page
-			<div>
+			<div className='py-10'>
 				<p>
 					Don't have an account yet?{' '}
 					<Link
