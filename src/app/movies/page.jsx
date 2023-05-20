@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
 
 import getMovies from './data/get-movies'
 
@@ -10,8 +9,6 @@ export const metadata = {
 
 export default async function MoviesPage() {
 	const movies = await getMovies()
-
-	if (!movies) notFound()
 
 	return (
 		<div className='grid grid-cols-5 gap-5 py-10'>
