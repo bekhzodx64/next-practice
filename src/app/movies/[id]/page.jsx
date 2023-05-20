@@ -47,22 +47,51 @@ export default async function Page({ params }) {
 							src={movie.vertical_poster.thumbnails.normal.src}
 							fill
 							className='object-cover w-auto h-auto select-none'
+							placeholder='blur'
+							blurDataURL={movie.vertical_poster.thumbnails.icon.src}
 							alt={movie.name}
 						/>
 					</div>
 				</div>
 
 				<div className='basis-4/5'>
-					<div className='max-w-md'>
+					<div className='max-w-md space-y-1'>
 						<div className='flex items-baseline gap-3'>
-							<div>Name:</div>
+							<div className='font-medium'>Name:</div>
 							<div className='border-b border-black border-dotted grow'></div>
-							<div>{movie.name}</div>
+							<div className='text-right'>{movie.name}</div>
 						</div>
 						<div className='flex items-baseline gap-3'>
-							<div>Year:</div>
+							<div className='font-medium'>Year:</div>
 							<div className='border-b border-black border-dotted grow'></div>
-							<div>{movie.year}</div>
+							<div className='text-right'>{movie.year}</div>
+						</div>
+						<div className='flex items-baseline gap-3'>
+							<div className='font-medium'>Language:</div>
+							<div className='border-b border-black border-dotted grow'></div>
+							<div className='text-right'>{movie.language.language}</div>
+						</div>
+						<div className='flex items-baseline gap-3'>
+							<div className='font-medium'>Rating:</div>
+							<div className='border-b border-black border-dotted grow'></div>
+							<div className='text-right'>{movie.rate.total}</div>
+						</div>
+						{movie.formats.length > 0 && (
+							<div className='flex items-baseline gap-3'>
+								<div className='font-medium'>
+									{movie.formats.length > 1 ? 'Formats:' : 'Format:'}
+								</div>
+								<div className='border-b border-black border-dotted grow'></div>
+								<ul className='flex items-baseline gap-2 text-right'>
+									{movie.formats.map((format) => (
+										<li>{format.name}</li>
+									))}
+								</ul>
+							</div>
+						)}
+						<div>
+							<div className='font-medium'>Description:</div>
+							<div className='text-justify'>{movie.description}</div>
 						</div>
 					</div>
 				</div>

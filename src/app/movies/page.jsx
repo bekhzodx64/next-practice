@@ -1,20 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
+
+import getMovies from './data/get-movies'
 
 export const metadata = {
 	title: 'Movies',
 }
 
-async function getMovies() {
-	const response = await fetch(
-		'https://api.biztv.media/api/v1/films?filter[type]=1&per_page=15&_f=json&_l=uz'
-	)
-
-	return response.json()
-}
-
-export default async function Movies() {
+export default async function MoviesPage() {
 	const movies = await getMovies()
+
+	if (!movies) notFound()
 
 	return (
 		<div className='grid grid-cols-5 gap-5 py-10'>

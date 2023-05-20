@@ -4,7 +4,7 @@ export const metadata = {
 	title: 'About',
 }
 
-export default function Layout({ children }) {
+export default function AboutLayout({ children }) {
 	return (
 		<div className='flex gap-10 py-10'>
 			<ul>

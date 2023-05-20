@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Login() {
+export default function LoginPage() {
 	return (
 		<div className='flex flex-col items-center py-10'>
 			login page

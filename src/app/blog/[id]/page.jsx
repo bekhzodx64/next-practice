@@ -20,7 +20,7 @@ async function getData(id) {
 	return res.json()
 }
 
-export default async function Post({ params }) {
+export default async function PostPage({ params }) {
 	const post = await getData(params.id)
 
 	if (!post) {

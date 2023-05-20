@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Register() {
+export default function RegisterPage() {
 	return (
 		<div className='flex flex-col items-center py-10'>
 			register page
